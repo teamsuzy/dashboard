@@ -1,0 +1,25 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "description": "The interactive Cansat dashboard of Team SUZY!",
+  "main": "server/server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "cd server && node server.js && cd ../"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamsuzy/dashboard.git"
+  },
+  "author": "teamsuzy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teamsuzy/dashboard/issues"
+  },
+  "homepage": "https://github.com/teamsuzy/dashboard#readme",
+  "dependencies": {
+    "serialport": "^8.0.5"
+  }
+}
