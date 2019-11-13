@@ -17,8 +17,46 @@ body {
     -ms-transition: color 1000ms linear;
     transition: color 1000ms linear;
 } */
+.bg-secondary {
+  background: var(--secondary) !important;
+  /* background-image: url("https://teamsuzy.nl/img/logo.png") !important */
+  /* no-repeat center center fixed !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important; */
+}
+
+.login-img {
+  height: 18rem;
+  width: 18rem;
+  position: absolute;
+  top: calc(55% - 9rem);
+  left: calc(50% - 9rem);
+}
+
 .progress {
   display: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 #wrapper {

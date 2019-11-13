@@ -307,7 +307,7 @@
             </li> -->
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1 no-primary-hover">
+            <!-- <li class="nav-item dropdown no-arrow mx-1 no-primary-hover">
               <a class="nav-link dropdown-toggle background-primary" id="messagesDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw d-block d-md-none mobile-clock"></i>
@@ -315,7 +315,6 @@
                 <span class="ml-1 mr-2 pr-4 text-gray-600 d-none d-md-block">Notifications</span>
                 <span class="badge badge-primary badge-counter mr-3 d-none d-md-block" id="latest-grades-badge">X</span>
               </a>
-              <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in shadow"
                 aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header background-primary">
@@ -326,7 +325,7 @@
                 </div>
                 <a class="dropdown-item text-center medium text-gray-800" href="#">Alle cijfers</a>
               </div>
-            </li>
+            </li> -->
 
             <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
@@ -334,36 +333,37 @@
             <li class="nav-item dropdown no-arrow no-primary-hover">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-label="Uitklappen" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-lg-inline text-gray-600 small d-none d-md-block">Voornaam Achternaam</span>
+                <span class="mr-2 d-lg-inline text-gray-600 small d-none d-md-block">email</span>
                 <img class="img-profile rounded-circle" id="imgelem" src="" alt="">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div id="mobilePersonInfo" class="dropdown-header d-block d-md-none">Voornaam Achternaam</div>
-                <a class="dropdown-item" onclick="syncGrades()">
+                <div id="mobilePersonInfo" class="dropdown-header d-block d-md-none">email</div>
+                <!-- <a class="dropdown-item" onclick="syncGrades()">
                   <i class="fas fa-sync fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sync cijfers
                 </a>
                 <a class="dropdown-item" data-toggle="modal" data-target="#passedModal">
                   <i class="fas fa-check fa-sm fa-fw mr-2 text-gray-400"></i>
                   Voldoendegrens
-                </a>
+                </a> -->
                 <!-- <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Settings
                   </a> -->
+                <span class="dropdown-item disabled" id="name"></span>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" data-toggle="theme" onclick="viewController.toggleTheme()">
                   <i class="fas fa-eye fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Wissel thema
+                  Switch theme
                 </a>
-                <a class="dropdown-item" onclick="viewController.openSettings()">
+                <!-- <a class="dropdown-item" onclick="viewController.openSettings()">
                   <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Instellingen
-                </a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  Settings
+                </a> -->
+                <a class="dropdown-item" onclick="logOut()">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Uitloggen
+                  Logout
                 </a>
               </div>
             </li>
@@ -406,13 +406,13 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary-blue text-uppercase mb-1">Triangle
+                      <div class="text-xs font-weight-bold text-primary-blue text-uppercase mb-1">Temperature
                       </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-triangle">-
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-temperature">-
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
+                      <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -425,10 +425,10 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Circle</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Altitude</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="general-circle">-</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="general-altitude">-</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
@@ -439,7 +439,7 @@
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-spinner fa-2x text-gray-300"></i>
+                      <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -451,15 +451,15 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Cross</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pressure</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="general-cross">-</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="general-pressure">-</div>
                         </div>
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-check fa-2x text-gray-300"></i>
+                      <i class="fas fa-info fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -472,12 +472,12 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Square</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-square">-
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Time</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-time">-
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-grin-beam-sweat fa-2x text-gray-300"></i>
+                      <i class="fas fa-clock fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -488,14 +488,32 @@
           <!-- Content Row -->
 
           <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-12">
-              <!-- class="col-xl-8 col-lg-7" -->
+            <!-- <div class="d-block"> -->
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary" id="general-area-title">Right stick</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Console</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body pt-0">
+                  <pre id="console" style="height: 17rem; overflow-y: scroll; text-align: left;"></pre>
+                  <div class="border-top">
+                    <input class="w-75 pt-2 d-inline" type="text" placeholder="Command..." id="command" /><button
+                      class="bg-primary w-10 py-2 px-3 d-inline border-0 float-right" id="command_send"><i
+                        class="fas fa-paper-plane text-white"></i></button></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area Chart -->
+            <!-- <div class="col-xl-12 col-lg-12"> -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary" id="general-area-title">Temperature</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" aria-label="Download grafiek"
                       onclick="viewController.downloadGraph()">
@@ -504,7 +522,7 @@
                   </div>
                 </div>
                 <!-- Card Body -->
-                <div class="card-body">
+                <div class="card-body pt-0">
                   <div class="chart-area">
                     <!-- <div class="table-responsive"> -->
                     <canvas id="lineChart"></canvas>
@@ -531,45 +549,8 @@
                 </div>
               </div>
             </div> -->
-            <div class="d-none">
-              <!-- Pie Chart -->
-              <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Voldoendes / onvoldoendes</h6>
-                    <!-- <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div> -->
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <h6 id="percentageGrades"></h6>
-                    <div class="chart-pie pt-4 pb-2">
-                      <canvas id="pieChart"></canvas>
-                    </div>
-                    <div class="text-center small">
-                      <span class="mr-2">
-                        <i class="fas fa-circle" style="color: #0096db"></i> Voldoendes
-                      </span>
-                      <span class="mr-2">
-                        <i class="fas fa-circle" style="color: #e86458"></i> Onvoldoendes
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+          <!-- </div> -->
 
           <!-- Content Row -->
           <div class="d-none">
@@ -671,7 +652,7 @@
                 </div>
               </div> -->
 
-              <div class="col-lg-6 mb-4">
+              <!-- <div class="col-lg-6 mb-4">
 
                 Illustrations
                 <div class="card shadow mb-4">
@@ -705,7 +686,7 @@
                   </div>
                 </div>
 
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -748,6 +729,15 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -780,6 +770,18 @@
   <script src="js/prototope.js"></script>
   <script src="js/SocketController.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAhk-93kEZfPcs71UB0dcGMUTIMoRUHD1o",
+      authDomain: "teamsuzy-dashboard.firebaseapp.com",
+      databaseURL: "https://teamsuzy-dashboard.firebaseio.com",
+      projectId: "teamsuzy-dashboard",
+      storageBucket: "teamsuzy-dashboard.appspot.com",
+      messagingSenderId: "489518053495",
+      appId: "1:489518053495:web:9f9b5197a8d54d90146e72"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@ var config = {
             borderColor: "#4e73df",
             fill: false,
             pointRadius: 0,
-            lineTension: 1,
+            lineTension: 0,
             data: []
         }]
         // datasets: [{
@@ -106,10 +106,10 @@ var config = {
             xAxes: [{
                 type: 'realtime',
                 realtime: {
-                    ttl: 5000,
-                    duration: 5000,
+                    // ttl: 6000,
+                    duration: 7000,
                     //     refresh: 50,
-                    //     delay: 0,
+                    delay: 1000,
                     //     pause: true
                 },
                 time: {
@@ -136,7 +136,11 @@ var config = {
                 ticks: {
                     padding: 10,
                     beginAtZero: false,
-                    display: true
+                    display: true,
+                    precision: 0.1,
+                    stepSize: 0.1
+                    // min: 22.30,
+                    // max: 22.40
                 }
             }]
         },
