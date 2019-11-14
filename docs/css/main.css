@@ -44,24 +44,34 @@ body {
   height: 0px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--secondary);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 #wrapper {
   overflow: auto !important;
   position: relative;
+}
+
+pre {
+  /* background-color: var(--primary); */
+  color: var(--secondary);
+  border-radius: 2px;
+}
+
+.json-key {
+  color: var(--secondary);
+  display: inline !important;
+}
+
+.json-value {
+  color: red;
+  display: inline !important;
+}
+
+.json-string {
+  color: yellowgreen;
+  display: inline !important;
 }
 
 body {

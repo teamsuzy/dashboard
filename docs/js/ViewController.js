@@ -16,8 +16,6 @@ class ViewController {
 
   renderGeneral() {
     $("#lesson-wrapper").hide();
-    $("#currentRender").text("Gemiddeld");
-    $("#currentRenderMobile").text("Gemiddeld");
     if (!this.config.isDesktop) {
       $("#sidebarToggleTop").click();
     }
@@ -105,15 +103,15 @@ class ViewController {
     $("body").append(`<div id="snackbar" class="snackbar">${msg}</div>`);
     $("#snackbar").css("display", "block");
     $("#snackbar").animate({
-      bottom: "30px"
-    },
+        bottom: "30px"
+      },
       "slow"
     );
     if (duration) {
       setTimeout(function () {
         $("#snackbar").animate({
-          bottom: "-200px"
-        },
+            bottom: "-200px"
+          },
           "slow",
           function () {
             $("#snackbar").remove();
@@ -128,8 +126,8 @@ class ViewController {
   }
 
   initTheme() {
-    var theme = this.config.darkTheme
-    if (theme) {
+    var theme = localStorage.getItem("darkTheme")
+    if (theme == "true") {
       $("body").attr("theme", "dark")
     } else {
       $("body").attr("theme", "light")
@@ -137,19 +135,21 @@ class ViewController {
   }
 
   toggleTheme() {
-    var theme = this.config.darkTheme
-    if (!theme) {
-      $("*").attr("theme", "dark")
-      this.updateConfig({
-        "darkTheme": true,
-        "isDesktop": this.config.isDesktop
-      });
+    var theme = localStorage.getItem("darkTheme")
+    if (theme != "true") {
+      $("body").attr("theme", "dark")
+      localStorage.setItem("darkTheme", "true")
+      // this.updateConfig({
+      //   "darkTheme": true,
+      //   "isDesktop": this.config.isDesktop
+      // });
     } else {
-      $("*").attr("theme", "light")
-      this.updateConfig({
-        "darkTheme": false,
-        "isDesktop": this.config.isDesktop
-      });
+      $("body").attr("theme", "light")
+      localStorage.setItem("darkTheme", "false")
+      // this.updateConfig({
+      //   "darkTheme": false,
+      //   "isDesktop": this.config.isDesktop
+      // });
     }
   }
 

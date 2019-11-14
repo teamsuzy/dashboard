@@ -411,8 +411,9 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-temperature">-
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300"></i>
+                    <div class="col-6">
+                      <canvas id="tempChart" height="37px"></canvas>
+                      <!-- <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300"></i> -->
                     </div>
                   </div>
                 </div>
@@ -438,8 +439,9 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
+                    <div class="col-6">
+                      <!-- <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i> -->
+                      <canvas id="altChart" height="37px"></canvas>
                     </div>
                   </div>
                 </div>
@@ -458,8 +460,9 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-info fa-2x text-gray-300"></i>
+                    <div class="col-5">
+                      <!-- <i class="fas fa-info fa-2x text-gray-300"></i> -->
+                      <canvas id="presChart" height="37px"></canvas>
                     </div>
                   </div>
                 </div>
@@ -472,8 +475,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Time</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-time">-
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Time Alive</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-alive">-
                       </div>
                     </div>
                     <div class="col-auto">
@@ -499,7 +502,7 @@
                 <!-- Card Body -->
                 <div class="card-body pt-0">
                   <pre id="console" style="height: 17rem; overflow-y: scroll; text-align: left;"></pre>
-                  <div class="border-top">
+                  <div class="" id="command_wrapper">
                     <input class="w-75 pt-2 d-inline" type="text" placeholder="Command..." id="command" /><button
                       class="bg-primary w-10 py-2 px-3 d-inline border-0 float-right" id="command_send"><i
                         class="fas fa-paper-plane text-white"></i></button></div>
@@ -514,12 +517,12 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary" id="general-area-title">Temperature</h6>
-                  <div class="dropdown no-arrow">
+                  <!-- <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" aria-label="Download grafiek"
                       onclick="viewController.downloadGraph()">
                       <i class="fas fa-download fa-sm"></i>
                     </a>
-                  </div>
+                  </div> -->
                 </div>
                 <!-- Card Body -->
                 <div class="card-body pt-0">
@@ -699,12 +702,14 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; <a href="https://github.com/mamorgen/magbot-stat"
+            <span>Copyright &copy; <a href="https://github.com/teamsuzy/dashboard" target="_blank"
                 aria-label="Github pagina van Magiscore" style="color: #858796">Dashboard</a> - <a
-                href="https://netlob.app" aria-label="Github portfolio van de maker" style="color: #858796">Team
+                href="https://netlob.app" target="_blank" aria-label="Github portfolio van de maker"
+                style="color: #858796">Team
                 SUZY</a>
-              <a href="https://wikipedia.org/wiki/2018" aria-label="2018" style="color: #858796">2018</a>-<a
-                href="https://wikipedia.org/wiki/2019" aria-label="2019" style="color: #858796">2019</a></span>
+              <a href="https://wikipedia.org/wiki/2018" target="_blank" aria-label="2018"
+                style="color: #858796">2018</a>-<a href="https://wikipedia.org/wiki/2019" target="_blank"
+                aria-label="2019" style="color: #858796">2019</a></span>
           </div>
         </div>
       </footer>

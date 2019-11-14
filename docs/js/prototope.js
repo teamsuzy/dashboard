@@ -2,10 +2,15 @@ window.onload = function () {
     var ctx = document.getElementById('lineChart').getContext('2d');
     window.myChart = new Chart(ctx, config);
 
+    var ctx2 = document.getElementById('tempChart').getContext('2d');
+    window.temperatureChart = new Chart(ctx2, config2)
 
-    // var ctx2 = document.getElementById('lineChart2').getContext('2d');
-    // window.myChartTwee = new Chart(ctx2, config);
-};
+    var ctx3 = document.getElementById('altChart').getContext('2d');
+    window.altitudeChart = new Chart(ctx3, config3)
+
+    var ctx4 = document.getElementById('presChart').getContext('2d');
+    window.pressureChart = new Chart(ctx4, config4)
+}
 
 var meters = [document.querySelector('#general-1'), document.querySelector('#general-2'), document.querySelector('#general-3'), document.querySelector('#general-4')]
 
@@ -36,84 +41,41 @@ function randomScalingFactor() {
 
 function onRefresh(chart) {}
 
-var color = Chart.helpers.color;
 var config = {
     type: 'line',
     data: {
         datasets: [{
-            label: '1',
-            backgroundColor: "#4e73df",
-            borderColor: "#4e73df",
+            label: 'Temperature',
+            backgroundColor: "rgb(66, 185, 131)",
+            borderColor: "rgb(66, 185, 131)",
             fill: false,
             pointRadius: 0,
-            lineTension: 0,
+            lineTension: 0.1,
             data: []
         }]
-        // datasets: [{
-        //         label: '1',
-        //         backgroundColor: "#4e73df",
-        //         borderColor: "#4e73df",
-        //         fill: false,
-        //         pointRadius: 0,
-        //         // lineTension: 0,
-        //         data: []
-        //     },
-        //     {
-        //         label: '2',
-        //         backgroundColor: "#1cc88a",
-        //         borderColor: "#1cc88a",
-        //         fill: false,
-        //         pointRadius: 0,
-        //         cubicInterpolationMode: 'monotone',
-        //         data: []
-        //     },
-        //     {
-        //         label: '3',
-        //         backgroundColor: "#36b9cc",
-        //         borderColor: "#36b9cc",
-        //         fill: false,
-        //         pointRadius: 0,
-        //         cubicInterpolationMode: 'monotone',
-        //         data: []
-        //     },
-        //     {
-        //         label: '4',
-        //         backgroundColor: "#f6c23e",
-        //         borderColor: "#f6c23e",
-        //         fill: false,
-        //         pointRadius: 0,
-        //         cubicInterpolationMode: 'monotone',
-        //         data: []
-        //     }
-        // ]
     },
     options: {
         maintainAspectRatio: false,
         responsive: true,
         layout: {
             padding: {
-                //   left: 10,
-                //   right: 25,
-                //   top: 25,
-                //   bottom: 0
-                left: 0,
+                left: 10,
                 right: 0,
                 top: 0,
-                bottom: 0
+                bottom: 10
             }
         },
         scales: {
             xAxes: [{
                 type: 'realtime',
                 realtime: {
-                    // ttl: 6000,
-                    duration: 7000,
+                    duration: 10000,
+                    // duration: 300000,
                     //     refresh: 50,
-                    delay: 1000,
-                    //     pause: true
+                    delay: 700
                 },
                 time: {
-                    unit: "month",
+                    unit: "second",
                     displayFormats: {
                         quarter: "ll"
                     }
@@ -137,10 +99,11 @@ var config = {
                     padding: 10,
                     beginAtZero: false,
                     display: true,
-                    precision: 0.1,
-                    stepSize: 0.1
-                    // min: 22.30,
-                    // max: 22.40
+                    // precision: 0.01,
+                    // stepSize: 0.01,
+                    // maxTicksLimit: 10
+                    // min: 23.7,
+                    // max: 24
                 }
             }]
         },
@@ -148,10 +111,10 @@ var config = {
             display: false
         },
         tooltips: {
-            backgroundColor: "#0096db",
+            backgroundColor: "rgb(66, 185, 131)",
             titleMarginBottom: 10,
             titleFontSize: 14,
-            borderColor: "rgba(0, 150, 219, 1)",
+            borderColor: "rgb(66, 185, 131)",
             borderWidth: 1,
             xPadding: 15,
             yPadding: 15,
@@ -160,5 +123,169 @@ var config = {
             mode: "index",
             caretPadding: 10
         }
+    }
+};
+
+var config2 = {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Temperature',
+            backgroundColor: "#4e73df ",
+            borderColor: "#4e73df ",
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 0,
+            lineTension: 0,
+            data: []
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        layout: {
+            padding: {
+                left: 10,
+                right: 0,
+                top: 0,
+                bottom: 10
+            }
+        },
+        scales: {
+            xAxes: [{
+                type: 'realtime',
+                realtime: {
+                    duration: 5000,
+                    delay: 700
+                },
+                display: false
+            }],
+            yAxes: [{
+                display: false
+            }]
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            display: false
+        }
+    }
+}
+
+var config3 = {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Altitude',
+            backgroundColor: "rgb(66, 185, 131)",
+            borderColor: "rgb(66, 185, 131)",
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 0,
+            lineTension: 0,
+            data: []
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        layout: {
+            padding: {
+                left: 10,
+                right: 0,
+                top: 0,
+                bottom: 10
+            }
+        },
+        scales: {
+            xAxes: [{
+                type: 'realtime',
+                realtime: {
+                    duration: 5000,
+                    delay: 700
+                },
+                display: false
+            }],
+            yAxes: [{
+                display: false
+            }]
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            display: false
+        }
+    }
+}
+var config4 = {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Pressure',
+            backgroundColor: "#36b9cc",
+            borderColor: "#36b9cc",
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 0,
+            lineTension: 0,
+            data: []
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        layout: {
+            padding: {
+                left: 10,
+                right: 0,
+                top: 0,
+                bottom: 10
+            }
+        },
+        scales: {
+            xAxes: [{
+                type: 'realtime',
+                realtime: {
+                    duration: 4166,
+                    delay: 700
+                },
+                display: false
+            }],
+            yAxes: [{
+                display: false
+            }]
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            display: false
+        }
+    }
+}
+
+if (!library)
+    var library = {};
+
+library.json = {
+    replacer: function (match, pIndent, pKey, pVal, pEnd) {
+        var key = '<span class=json-key>';
+        var val = '<span class=json-value>';
+        var str = '<span class=json-string>';
+        var r = pIndent || '';
+        if (pKey)
+            r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+        if (pVal)
+            r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+        return r + (pEnd || '');
+    },
+    prettyPrint: function (obj) {
+        var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+        return JSON.stringify(obj, null, 3)
+            .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+            .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(jsonLine, library.json.replacer);
     }
 };
