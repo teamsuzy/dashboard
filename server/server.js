@@ -20,7 +20,7 @@ parser.on('data', line => {
     console.log(`> ${line}`)
     try {
         line = JSON.parse(line)
-        if ('alive' in line && 'temperature' in line && 'altitude' in line && 'pressure' in line) {
+        if ('alive' in line && 'temperature' in line && 'altitude' in line && 'pressure' in line && 'gps' in line && line['gps']) {
             line["time"] = new Date().toISOString()
             dataChunk.push(line)
         }
