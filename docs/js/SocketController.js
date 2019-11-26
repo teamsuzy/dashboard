@@ -31,7 +31,7 @@ socket.on("rf", (data) => {
     data = JSON.parse(data)
     for (var key in data) {
         $(`#general-${key}`).text(key == "alive" ? milli(data[key]) : data[key])
-        if (key != "alive") {
+        if (key != "alive" && key != "team" && window[(key + 'Chart')]) {
             window[(key + 'Chart')].config.data.datasets[0].data.push({
                 x: Date.now(),
                 y: data[key]
@@ -76,6 +76,10 @@ socket.on("left", (data) => {
     // });
 });
 
+socket.on("savePath", (data) => {
+    $("#download_frame").attr("src", location.origin + location.pathname + data)
+});
+
 $("#command").keyup((event) => {
     if (event.keyCode === 13 && $("#command").val() != '') {
         $("#command_send").click();
@@ -86,6 +90,11 @@ $("#command_send").click(() => {
     socket.emit('command', $("#command").val());
     $("#command").val('')
 })
+
+
+function saveData() {
+    socket.emit('save', true)
+}
 
 
 const milli = millis => {

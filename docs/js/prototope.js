@@ -69,7 +69,7 @@ var config = {
             xAxes: [{
                 type: 'realtime',
                 realtime: {
-                    duration: 10000,
+                    duration: 20000,
                     // duration: 300000,
                     //     refresh: 50,
                     delay: 700
@@ -102,8 +102,8 @@ var config = {
                     // precision: 0.01,
                     // stepSize: 0.01,
                     // maxTicksLimit: 10
-                    // min: 23.7,
-                    // max: 24
+                    // min: 26,
+                    // max: 26.5
                 }
             }]
         },
@@ -122,6 +122,7 @@ var config = {
             intersect: false,
             mode: "index",
             caretPadding: 10
+            // enabled: false
         }
     }
 };
@@ -168,7 +169,7 @@ var config2 = {
             display: false
         },
         tooltips: {
-            display: false
+            enabled: false
         }
     }
 }
@@ -215,7 +216,7 @@ var config3 = {
             display: false
         },
         tooltips: {
-            display: false
+            enabled: false
         }
     }
 }
@@ -261,7 +262,7 @@ var config4 = {
             display: false
         },
         tooltips: {
-            display: false
+            enabled: false
         }
     }
 }

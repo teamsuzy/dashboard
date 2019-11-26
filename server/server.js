@@ -3,18 +3,27 @@ const dualShock = require('dualshock-controller'),
     // app = express(),
     http = require("http").createServer(),
     io = require("socket.io")(http),
+    fs = require('fs'),
+    json2xls = require('json2xls'),
     SerialPort = require('serialport'),
     Readline = require('@serialport/parser-readline'),
     parser = new Readline(),
     port = new SerialPort("/dev/cu.SLAB_USBtoUART", {
         baudRate: 9600
-    })
+    }),
+    dataChunk = []
 
 port.pipe(parser)
 
 parser.on('data', line => {
     io.sockets.emit('rf', line)
     console.log(`> ${line}`)
+    try {
+        line = JSON.parse(line)
+        if ('alive' in line && 'temperature' in line && 'altitude' in line && 'pressure' in line) {
+            dataChunk.push(line)
+        }
+    } catch (e) {}
 })
 
 
@@ -83,6 +92,15 @@ io.on("connection", (socket) => {
         port.write(data)
         io.sockets.emit('command', data)
         console.log(data);
+    });
+
+    socket.on('save', () => {
+        // io.sockets.emit('command', data)
+        console.log(dataChunk.length);
+        var xls = json2xls(dataChunk);
+        var path = `../docs/data/data-${dataChunk[dataChunk.length-1]["alive"]}.xlsx`
+        fs.writeFileSync(path, xls, 'binary');
+        socket.emit("savePath", path.substr(7))
     });
 });
 

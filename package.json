@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/teamsuzy/dashboard#readme",
   "dependencies": {
+    "json2xls": "^0.1.2",
     "serialport": "^8.0.5"
   }
 }
