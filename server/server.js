@@ -97,10 +97,12 @@ io.on("connection", (socket) => {
     socket.on('save', () => {
         // io.sockets.emit('command', data)
         console.log(dataChunk.length);
-        var xls = json2xls(dataChunk);
-        var path = `../docs/data/data-${dataChunk[dataChunk.length-1]["alive"]}.xlsx`
-        fs.writeFileSync(path, xls, 'binary');
-        socket.emit("savePath", path.substr(7))
+        if (dataChunk.length) {
+            var xls = json2xls(dataChunk);
+            var path = `../docs/data/data-${dataChunk[dataChunk.length-1]["alive"]}.xlsx`
+            fs.writeFileSync(path, xls, 'binary');
+            socket.emit("savePath", path.substr(7))
+        } else socket.emit("savePath", false)
     });
 });
 

@@ -99,26 +99,61 @@ class ViewController {
     this.config = config;
   }
 
-  toast(msg, duration) {
-    $("body").append(`<div id="snackbar" class="snackbar">${msg}</div>`);
-    $("#snackbar").css("display", "block");
-    $("#snackbar").animate({
-        bottom: "30px"
+  toast(msg, duration, fullWidth) {
+    fullWidth = true
+    var snackId = Math.floor((Math.random() * 1000000) + 1)
+    // var bottom = 30
+    var top = $(".snackbar").length < 1 ? 0 : ($(".snackbar").length * 60)
+    $("body").append(`<div id="snackbar-${snackId}" class="snackbar${fullWidth ? " w-90" : ""}">${msg}</div>`);
+    // $(`#snackbar-${snackId}`).css("margin-bottom", -($(`#snackbar-${snackId}`).width() / 2 + 16))
+    $(`#snackbar-${snackId}`).css("top", `${top + 90}px`);
+    $(`#snackbar-${snackId}`).css("display", "block");
+    $(`#snackbar-${snackId}`).animate({
+        "right": "19px"
       },
-      "slow"
+      "fast"
     );
     if (duration) {
       setTimeout(function () {
-        $("#snackbar").animate({
-            bottom: "-200px"
+        $(".snackbar").each((i, obj) => {
+          if ($(obj).attr("id") != $(`#snackbar-${snackId}`).attr("id")) {
+            $(obj).animate({
+                "top": "-=" + ($(`#snackbar-${snackId}`).height() * 2)
+              },
+              "fast",
+              function () {})
+          }
+        })
+        $(`#snackbar-${snackId}`).animate({
+            "right": "-200px"
           },
-          "slow",
+          "fast",
           function () {
-            $("#snackbar").remove();
+            $(`#snackbar-${snackId}`).remove();
           }
         );
       }, duration);
     }
+    return snackId
+    // $("body").append(`<div id="snackbar" class="snackbar">${msg}</div>`);
+    // $("#snackbar").css("display", "block");
+    // $("#snackbar").animate({
+    //     right: "30px"
+    //   },
+    //   "slow"
+    // );
+    // if (duration) {
+    //   setTimeout(function () {
+    //     $("#snackbar").animate({
+    //         right: "-200px"
+    //       },
+    //       "slow",
+    //       function () {
+    //         $("#snackbar").remove();
+    //       }
+    //     );
+    //   }, duration);
+    // }
   }
 
   removeToasts() {

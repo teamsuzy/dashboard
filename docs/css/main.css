@@ -373,17 +373,18 @@ select:-webkit-autofill:focus {
 
 .snackbar {
   display: none;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
+  top: 100px;
+  /* min-width: 250px; */
+  /* margin-left: -125px; */
+  background-color: var(--primary);
   color: #fff;
   text-align: center;
   border-radius: 2px;
   padding: 16px;
   position: fixed;
   z-index: 1;
-  left: 50%;
-  bottom: -200px;
+  /* left: 50%; */
+  right: -200px;
 }
 
 .btn-demo:hover {

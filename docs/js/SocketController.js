@@ -1,5 +1,8 @@
 // const io = require("socket.io-client");
-let socket = io(`http://${window.location.hostname}:3000`);
+var url_string = window.location.href
+var url = new URL(url_string)
+var c = url.searchParams.get("local")
+let socket = io(`http://${c ? 'localhost' : window.location.hostname}:3000`);
 
 var onevent = socket.onevent;
 socket.onevent = function (packet) {
@@ -77,7 +80,9 @@ socket.on("left", (data) => {
 });
 
 socket.on("savePath", (data) => {
-    $("#download_frame").attr("src", location.origin + location.pathname + data)
+    console.log(data)
+    if (!data) viewController.toast("No data available...", 1000)
+    $("#download_frame").attr("src", `http://${(c ? 'localhost' : window.location.hostname) + data}`)
 });
 
 $("#command").keyup((event) => {
