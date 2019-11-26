@@ -65,12 +65,12 @@ pre {
 }
 
 .json-value {
-  color: red;
+  color: var(--info);
   display: inline !important;
 }
 
 .json-string {
-  color: yellowgreen;
+  color: var(--warning);
   display: inline !important;
 }
 

@@ -16,6 +16,7 @@ socket.on("*", (event, data) => {
     $(`#console`).append(`${event.toString().trim()}: ${data && data.isJSON() ? library.json.prettyPrint(JSON.parse(data.toString().trim())).replace(/\n/g, "").replace(/   /g, " ") : '-'}\n`)
     var pos = $(`#console`).scrollTop();
     $(`#console`).scrollTop(pos + 999999999);
+    $("#data").html(data && data.isJSON() ? library.json.prettyPrint(JSON.parse(data.toString().trim())) : '')
 });
 
 socket.on("square", (data) => {
@@ -52,6 +53,19 @@ socket.on("rf", (data) => {
                 });
             }
         }
+        if (key == "gps" && data[key] && window.mapLoaded) {
+            map.getSource('cansat').setData({
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [(data[key]["long"] / 100), (data[key]["lat"] / 100)]
+                },
+                "type": "Feature",
+                "properties": {}
+            });
+            map.flyTo({
+                center: [(data[key]["long"] / 100), (data[key]["lat"] / 100)]
+            });
+        }
     }
     // var d = new Date()
     // $(`#general-time`).text(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}:${d.getMilliseconds()}`)
@@ -82,7 +96,8 @@ socket.on("left", (data) => {
 socket.on("savePath", (data) => {
     console.log(data)
     if (!data) viewController.toast("No data available...", 1000)
-    $("#download_frame").attr("src", `http://${(c ? 'localhost' : window.location.hostname) + data}`)
+    console.log(`http://${(c ? 'localhost:5501/docs' : window.location.hostname) + data}`)
+    $("#download_frame").attr("src", `http://${(c ? 'localhost:5501/docs' : window.location.hostname) + data}`)
 });
 
 $("#command").keyup((event) => {

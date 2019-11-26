@@ -10,6 +10,62 @@ window.onload = function () {
 
     var ctx4 = document.getElementById('presChart').getContext('2d');
     window.pressureChart = new Chart(ctx4, config4)
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoibmV0bG9iIiwiYSI6ImNrMXMxOHRzZDBhYnczb2xpbzdrdnZyNmIifQ.lTSGs952BP7cCjLhWUjuRw';
+    window.map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/satellite-v9',
+        center: [4.6589133, 52.3079303], // starting position
+        zoom: 13
+    });
+    map.on('load', function () {
+        map.addSource('cansat', {
+            type: 'geojson',
+            data: {
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": []
+                },
+                "type": "Feature",
+                "properties": {}
+            }
+        });
+        map.addLayer({
+            "id": "cansat",
+            "type": "symbol",
+            "source": "cansat",
+            "layout": {
+                "icon-image": "rocket-15"
+            }
+        });
+        window.mapLoaded = true
+        // map.addLayer({
+        //     "id": "route",
+        //     "type": "line",
+        //     "source": {
+        //         "type": "geojson",
+        //         "data": {
+        //             "type": "Feature",
+        //             "properties": {},
+        //             "geometry": {
+        //                 "type": "LineString",
+        //                 "coordinates": [
+        //                     [4.6589133, 52.3079303],
+        //                     [4.6589234, 52.3079204]
+        //                 ]
+        //             }
+        //         }
+        //     },
+        //     "layout": {
+        //         "line-join": "round",
+        //         "line-cap": "round"
+        //     },
+        //     "paint": {
+        //         "line-color": "#42b983",
+        //         "line-width": 80
+        //     }
+        // });
+    })
 }
 
 var meters = [document.querySelector('#general-1'), document.querySelector('#general-2'), document.querySelector('#general-3'), document.querySelector('#general-4')]

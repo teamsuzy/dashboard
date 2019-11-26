@@ -21,6 +21,7 @@ parser.on('data', line => {
     try {
         line = JSON.parse(line)
         if ('alive' in line && 'temperature' in line && 'altitude' in line && 'pressure' in line) {
+            line["time"] = new Date().toISOString()
             dataChunk.push(line)
         }
     } catch (e) {}

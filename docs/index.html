@@ -10,6 +10,8 @@
   <meta name="author" content="">
 
   <title>Dashboard - Team SUZY</title>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -456,6 +458,9 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Console</h6>
+                  <a class="float-right text-secondary" onclick="$('#console').empty()">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body pt-0">
@@ -514,38 +519,17 @@
           <!-- </div> -->
 
           <!-- Content Row -->
-          <div class="d-none">
+          <div class="d-block">
             <div class="row">
 
 
-              <div class="col-lg-4 mb-4">
-                <div class="card shadow mb-4">
+              <div class="col-lg-8 mb-8">
+                <div class="card shadow mb-8">
                   <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Algemene feiten</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Locatie</h6>
                   </div>
-                  <div class="card-body" id="general-facts">
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 mb-3">
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Gemiddeldes</h6>
-                  </div>
-                  <div class="card-body" id="general-averages">
-                    <div class="table-responsive">
-                      <table class="table" width="100%" cellspacing="0">
-                        <thead class="text-primary">
-                          <tr>
-                            <th>Vak</th>
-                            <th>Gemiddelde</th>
-                          </tr>
-                        </thead>
-                        <tbody id="averagesTable">
-                        </tbody>
-                      </table>
-                    </div>
+                  <div class="card-body pt-0">
+                    <div id="map" style="height: 400px;"></div>
                   </div>
                 </div>
               </div>
@@ -553,65 +537,13 @@
               <div class="col-lg-4 mb-4">
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Alle cijfers</h6>
-
+                    <h6 class="m-0 font-weight-bold text-primary">Data</h6>
                   </div>
-                  <div class="card-body" id="general-facts">
+                  <div class="card-body pt-0">
+                    <pre id="data" style="font-size: large;"></pre>
                   </div>
                 </div>
               </div>
-
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
 
               <!-- <div class="col-lg-6 mb-4">
 
@@ -648,6 +580,58 @@
                 </div>
 
               </div> -->
+            </div>
+
+          </div>
+          <!-- Color System -->
+          <div class="row mt-4">
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-primary text-white shadow">
+                <div class="card-body">
+                  Primary
+                  <div class="text-white-50 small">#314255</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                  Success
+                  <div class="text-white-50 small">#1cc88a</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-info text-white shadow">
+                <div class="card-body">
+                  Info
+                  <div class="text-white-50 small">#36b9cc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-warning text-white shadow">
+                <div class="card-body">
+                  Warning
+                  <div class="text-white-50 small">#f6c23e</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-danger text-white shadow">
+                <div class="card-body">
+                  Danger
+                  <div class="text-white-50 small">#e74a3b</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card bg-secondary text-white shadow">
+                <div class="card-body">
+                  Secondary
+                  <div class="text-white-50 small">#42b983</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -716,6 +700,8 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
     integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+
   <script src="js/deps/live-chart.min.js"></script>
   <script src="js/deps/algebra.js"></script>
   <script src="js/deps/imagecache.js"></script>
