@@ -62,7 +62,6 @@ void setup()
     while (1);
   }
   delay(1000);
-  Serial.println("What is your name?");
 }
 
 uint32_t timer = millis(); // set the timer
