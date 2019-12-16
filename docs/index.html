@@ -463,9 +463,11 @@
                   </a>
                 </div>
                 <!-- Card Body -->
-                <div class="card-body pt-0">
-                  <pre id="console" style="height: 17rem; overflow-y: scroll; text-align: left;"></pre>
-                  <div class="" id="command_wrapper">
+                <div class="card-body pt-0" style="height: 315px !important;">
+                  <pre id="console"
+                    style="height: calc(315px - 40px - 1.5rem);overflow-y: scroll; text-align: left;"></pre>
+                  <div id="command_wrapper" class="bg-primary"
+                    style="bottom: 1.25rem; position: absolute; left: 1.25rem; right: 1.25rem;">
                     <input class="w-75 pt-2 d-inline" type="text" placeholder="Command..." id="command" /><button
                       class="bg-primary w-10 py-2 px-3 d-inline border-0 float-right" id="command_send"><i
                         class="fas fa-paper-plane text-white"></i></button></div>
@@ -488,7 +490,7 @@
                   </div> -->
                 </div>
                 <!-- Card Body -->
-                <div class="card-body pt-0">
+                <div class="card-body pt-0 pb-0">
                   <div class="chart-area">
                     <!-- <div class="table-responsive"> -->
                     <canvas id="lineChart"></canvas>
@@ -530,6 +532,13 @@
                   </div>
                   <div class="card-body pt-0">
                     <div id="map" style="height: 400px;"></div>
+                    <div class="map-overlay">
+                      <center>
+                        <i class="fas fa-circle-notch fa-spin fa-3x text-white" aria-hidden="true"></i>
+                        <br><br>
+                        <span class="text-white">Wachten op GPS locatie...</span>
+                      </center>
+                    </div>
                   </div>
                 </div>
               </div>

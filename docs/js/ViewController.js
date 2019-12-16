@@ -99,12 +99,11 @@ class ViewController {
     this.config = config;
   }
 
-  toast(msg, duration, fullWidth) {
-    fullWidth = true
+  toast(msg, duration, color) {
     var snackId = Math.floor((Math.random() * 1000000) + 1)
     // var bottom = 30
     var top = $(".snackbar").length < 1 ? 0 : ($(".snackbar").length * 60)
-    $("body").append(`<div id="snackbar-${snackId}" class="snackbar${fullWidth ? " w-90" : ""}">${msg}</div>`);
+    $("body").append(`<div id="snackbar-${snackId}" class="snackbar bg-${color}">${msg}</div>`);
     // $(`#snackbar-${snackId}`).css("margin-bottom", -($(`#snackbar-${snackId}`).width() / 2 + 16))
     $(`#snackbar-${snackId}`).css("top", `${top + 90}px`);
     $(`#snackbar-${snackId}`).css("display", "block");

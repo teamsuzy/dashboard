@@ -287,6 +287,24 @@ input.form-control::placeholder {
   cursor: wait;
 }
 
+#command_wrapper {
+  background-color: transparent !important;
+}
+
+.map-overlay {
+  position: absolute;
+  width: calc(100% - 2.5rem);
+  height: 400px;
+  top: 3.2rem;
+  left: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: wait;
+  padding-top: 170px;
+  user-select: none;
+  color: #fff !important;
+}
+
 #settings-overlay {
   position: fixed;
   display: none;

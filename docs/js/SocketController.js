@@ -13,25 +13,15 @@ socket.onevent = function (packet) {
 };
 
 socket.on("*", (event, data) => {
+    if ($(`#console`).children().length > 1000) $(`#console`).empty()
     $(`#console`).append(`${event.toString().trim()}: ${data && data.isJSON() ? library.json.prettyPrint(JSON.parse(data.toString().trim())).replace(/\n/g, "").replace(/   /g, " ") : '-'}\n`)
     var pos = $(`#console`).scrollTop();
     $(`#console`).scrollTop(pos + 999999999);
     $("#data").html(data && data.isJSON() ? library.json.prettyPrint(JSON.parse(data.toString().trim())) : '')
 });
 
-socket.on("square", (data) => {
-    $(`#general-square`).text(data)
-});
-socket.on("x", (data) => {
-    $(`#general-cross`).text(data)
-});
-socket.on("circle", (data) => {
-    $(`#general-circle`).text(data)
-});
-socket.on("triangle", (data) => {
-    $(`#general-triangle`).text(data)
-});
 socket.on("rf", (data) => {
+    if (!data.isJSON()) return
     data = JSON.parse(data)
     for (var key in data) {
         $(`#general-${key}`).text(key == "alive" ? milli(data[key]) : data[key])
@@ -53,50 +43,31 @@ socket.on("rf", (data) => {
                 });
             }
         }
-        if (key == "gps" && data[key] && window.mapLoaded) {
-            map.getSource('cansat').setData({
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [(data[key]["long"] / 100), (data[key]["lat"] / 100)]
-                },
-                "type": "Feature",
-                "properties": {}
-            });
-            map.flyTo({
-                center: [(data[key]["long"] / 100), (data[key]["lat"] / 100)]
-            });
+        if (key == "gps") {
+            if (data[key] && window.mapLoaded) {
+                map.getSource('cansat').setData({
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [(data[key]["long"] / 100), (data[key]["lat"] / 100)]
+                    },
+                    "type": "Feature",
+                    "properties": {}
+                });
+                $(".map-overlay").hide()
+                map.flyTo({
+                    center: [(data[key]["long"] / 100), (data[key]["lat"] / 100)]
+                });
+            } else {
+                $(".map-overlay").show()
+            }
         }
     }
     // var d = new Date()
     // $(`#general-time`).text(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}:${d.getMilliseconds()}`)
 });
 
-// var right = 0;
-// socket.on("right", (data) => {
-//     right = JSON.parse(data).x
-//     window.myChart.config.data.datasets[0].data.push({
-//         x: Date.now(),
-//         y: right
-//     });
-//     window.myChart.update({
-//         preservation: true
-//     });
-// });
-
-
-socket.on("left", (data) => {
-    // window.myChartTwee.config.data.datasets.forEach(function (dataset) {
-    //     dataset.data.push({
-    //         x: Date.now(),
-    //         y: JSON.parse(data).x
-    //     });
-    // });
-});
-
 socket.on("savePath", (data) => {
-    console.log(data)
-    if (!data) viewController.toast("No data available...", 1000)
-    console.log(`http://${(c ? 'localhost:5501/docs' : window.location.hostname) + data}`)
+    if (!data) viewController.toast("No data available...", 1000, "warning")
     $("#download_frame").attr("src", `http://${(c ? 'localhost:5501/docs' : window.location.hostname) + data}`)
 });
 
