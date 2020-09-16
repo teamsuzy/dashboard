@@ -1,159 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
+    <title>Dashboard - Team SUZY</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
 
-  <title>Dashboard - Team SUZY</title>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <!-- Light theme -->
+    <link href="css/light.css" type="text/css" rel="stylesheet" />
 
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+    <!-- Temporary fix classes -->
+    <link href="css/main.css" rel="stylesheet" />
 
-  <!-- Light theme -->
-  <link href="css/light.css" type="text/css" rel="stylesheet">
+    <!-- Dark theme -->
+    <link href="css/dark.css" type="text/css" rel="stylesheet" />
 
-  <!-- Temporary fix classes -->
-  <link href="css/main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
 
-  <!-- Dark theme -->
-  <link href="css/dark.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#314255" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Magiscore" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="Description"
+      content="Magister Statistieken Magistat Cijfers Grafiek Berekenen Uitrekenen"
+    />
+    <meta
+      name="Tags"
+      content="Magister Statistieken Magistat Cijfers Grafiek Berekenen Uitrekenen"
+    />
+    <link rel="icon" sizes="192x192" href="./img/icons/icon-128x128.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./img/icons/icon-128x128.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./img/icons/icon-152x152.png"
+    />
+    <link
+      href="img/splashscreens/iphone5_splash.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="img/splashscreens/iphone6_splash.png"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="img/splashscreens/iphoneplus_splash.png"
+      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="img/splashscreens/iphonex_splash.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="img/splashscreens/ipad_splash.png"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="img/splashscreens/ipadpro1_splash.png"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="img/splashscreens/ipadpro2_splash.png"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
 
-  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-
-  <meta name="theme-color" content="#314255">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Magiscore">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Description" content="Magister Statistieken Magistat Cijfers Grafiek Berekenen Uitrekenen">
-  <meta name="Tags" content="Magister Statistieken Magistat Cijfers Grafiek Berekenen Uitrekenen">
-  <link rel="icon" sizes="192x192" href="./img/icons/icon-128x128.png">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="apple-touch-icon" href="./img/icons/icon-128x128.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="./img/icons/icon-152x152.png">
-  <link href="img/splashscreens/iphone5_splash.png"
-    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
-    rel="apple-touch-startup-image" />
-  <link href="img/splashscreens/iphone6_splash.png"
-    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
-    rel="apple-touch-startup-image" />
-  <link href="img/splashscreens/iphoneplus_splash.png"
-    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
-    rel="apple-touch-startup-image" />
-  <link href="img/splashscreens/iphonex_splash.png"
-    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
-    rel="apple-touch-startup-image" />
-  <link href="img/splashscreens/ipad_splash.png"
-    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
-    rel="apple-touch-startup-image" />
-  <link href="img/splashscreens/ipadpro1_splash.png"
-    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
-    rel="apple-touch-startup-image" />
-  <link href="img/splashscreens/ipadpro2_splash.png"
-    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
-    rel="apple-touch-startup-image" />
-
-  <!-- <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/img/splashscreens/iphoneplus_splash.png"> -->
-  <!-- <link rel="apple-touch-startup-image" href="/img/iphoneplus_splash.png"> -->
-  <!-- <link href="/img/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <!-- <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/img/splashscreens/iphoneplus_splash.png"> -->
+    <!-- <link rel="apple-touch-startup-image" href="/img/iphoneplus_splash.png"> -->
+    <!-- <link href="/img/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/iphone6_splash.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
   <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/img/splashscreens/iphoneplus_splash.png"> -->
-  <!-- <link rel="apple-touch-startup-image" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" href="/img/splashscreens/iphoneplus_splash.png" /> -->
-  <!-- <link href="/img/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <!-- <link rel="apple-touch-startup-image" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" href="/img/splashscreens/iphoneplus_splash.png" /> -->
+    <!-- <link href="/img/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <link href="/img/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" /> -->
-</head>
+  </head>
 
-<body id="page-top">
-  <iframe id="download_frame" class="d-none"></iframe>
+  <body id="page-top">
+    <iframe id="download_frame" class="d-none"></iframe>
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#" aria-label="Home">
-        <div class="sidebar-brand-icon rotate-n-0">
-          <i class="fas fa-satellite"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Team SUZY<sup></sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" onclick="viewController.render('general')">
-          <!-- <i class="fas fa-fw fa-graduation-cap"></i> -->
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Pages
-      </div>
-
-      <div id="subjectsNav">
-      </div>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-chart-line"></i>
-          <span>Charts</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="#"
+          aria-label="Home"
+        >
+          <div class="sidebar-brand-icon rotate-n-0">
+            <i class="fas fa-satellite"></i>
           </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-          aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Config</span>
+          <div class="sidebar-brand-text mx-3">Team SUZY<sup></sup></div>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" onclick="viewController.render('general')">
+            <!-- <i class="fas fa-fw fa-graduation-cap"></i> -->
+            <span>Dashboard</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Pages</div>
+
+        <div id="subjectsNav"></div>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-fw fa-chart-line"></i>
+            <span>Charts</span>
+          </a>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Custom Components:</h6>
+              <a class="collapse-item" href="buttons.html">Buttons</a>
+              <a class="collapse-item" href="cards.html">Cards</a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider"> -->
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseUtilities"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+          >
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Config</span>
+          </a>
+          <div
+            id="collapseUtilities"
+            class="collapse"
+            aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Custom Utilities:</h6>
+              <a class="collapse-item" href="utilities-color.html">Colors</a>
+              <a class="collapse-item" href="utilities-border.html">Borders</a>
+              <a class="collapse-item" href="utilities-animation.html"
+                >Animations</a
+              >
+              <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+          </div>
+        </li>
 
-      <!-- Heading -->
-      <!-- <div class="sidebar-heading">
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider"> -->
+
+        <!-- Heading -->
+        <!-- <div class="sidebar-heading">
         Settings
       </div> -->
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <!-- <li class="nav-item">
+        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pages</span>
@@ -172,52 +236,52 @@
         </div>
       </li> -->
 
-      <!-- Nav Item - Charts -->
-      <!-- <li class="nav-item">
+        <!-- Nav Item - Charts -->
+        <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li> -->
 
-      <!-- Nav Item - Tables -->
-      <!-- <li class="nav-item">
+        <!-- Nav Item - Tables -->
+        <!-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li> -->
 
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <!-- <div class="text-center d-none d-md-inline">
+        <!-- Sidebar Toggler (Sidebar) -->
+        <!-- <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle" aria-label="Toggle zijkant"></button>
       </div> -->
+      </ul>
+      <!-- End of Sidebar -->
 
-    </ul>
-    <!-- End of Sidebar -->
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="sidebarOverlay" class></div>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="sidebarOverlay" class></div>
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
-          <!-- <div style="height: 70px; position: fixed;"></div> -->
-          <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 navbar-static-top shadow" style="position: fixed !important; z-index: 100; width: 100vw;">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
+          >
+            <!-- <div style="height: 70px; position: fixed;"></div> -->
+            <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 navbar-static-top shadow" style="position: fixed !important; z-index: 100; width: 100vw;">
           <div class="container-fluid"> -->
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none bg-primary rounded-circle mr-3"
+            <!-- Sidebar Toggle (Topbar) -->
+            <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none bg-primary rounded-circle mr-3"
             aria-label="Toggle zijkant">
             <i class="fa fa-bars"></i>
           </button> -->
 
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <!-- Topbar Search -->
+            <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
@@ -228,22 +292,29 @@
               </div>
             </form> -->
 
-          <h1 class="ml-md-2 h3 mb-0 text-gray-800 d-none d-md-block" id="currentRender">Live dashboard</h1>
-          <h1 class="ml-md-2 h3 mb-0 text-gray-800 d-block d-md-none text-center text-mobile ml-2"
-            id="currentRenderMobile">
-            Live dashboard</h1>
+            <h1
+              class="ml-md-2 h3 mb-0 text-gray-800 d-none d-md-block"
+              id="currentRender"
+            >
+              Live dashboard
+            </h1>
+            <h1
+              class="ml-md-2 h3 mb-0 text-gray-800 d-block d-md-none text-center text-mobile ml-2"
+              id="currentRenderMobile"
+            >
+              Live dashboard
+            </h1>
 
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <!-- <li class="nav-item dropdown no-arrow d-sm-none">
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+              <!-- <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a> -->
-            <!-- Dropdown - Messages -->
-            <!-- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+              <!-- Dropdown - Messages -->
+              <!-- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
@@ -259,15 +330,15 @@
               </div>
             </li> -->
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1 no-primary-hover">
-              <a class="nav-link" role="button" onclick="saveData()">
-                <i class="fas fa-download fa-fw"></i>
-              </a>
-            </li>
+              <!-- Nav Item - Alerts -->
+              <li class="nav-item dropdown no-arrow mx-1 no-primary-hover">
+                <a class="nav-link" role="button" onclick="saveData()">
+                  <i class="fas fa-download fa-fw"></i>
+                </a>
+              </li>
 
-            <!-- Nav Item - Messages -->
-            <!-- <li class="nav-item dropdown no-arrow mx-1 no-primary-hover">
+              <!-- Nav Item - Messages -->
+              <!-- <li class="nav-item dropdown no-arrow mx-1 no-primary-hover">
               <a class="nav-link dropdown-toggle background-primary" id="messagesDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw d-block d-md-none mobile-clock"></i>
@@ -287,19 +358,43 @@
               </div>
             </li> -->
 
-            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
+              <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow no-primary-hover">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-label="Uitklappen" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-lg-inline text-gray-600 small d-none d-md-block">email</span>
-                <img class="img-profile rounded-circle" id="imgelem" src="" alt="">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div id="mobilePersonInfo" class="dropdown-header d-block d-md-none">email</div>
-                <!-- <a class="dropdown-item" onclick="syncGrades()">
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow no-primary-hover">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-label="Uitklappen"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span
+                    class="mr-2 d-lg-inline text-gray-600 small d-none d-md-block"
+                    >email</span
+                  >
+                  <img
+                    class="img-profile rounded-circle"
+                    id="imgelem"
+                    src=""
+                    alt=""
+                  />
+                </a>
+                <!-- Dropdown - User Information -->
+                <div
+                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown"
+                >
+                  <div
+                    id="mobilePersonInfo"
+                    class="dropdown-header d-block d-md-none"
+                  >
+                    email
+                  </div>
+                  <!-- <a class="dropdown-item" onclick="syncGrades()">
                   <i class="fas fa-sync fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sync cijfers
                 </a>
@@ -307,199 +402,281 @@
                   <i class="fas fa-check fa-sm fa-fw mr-2 text-gray-400"></i>
                   Voldoendegrens
                 </a> -->
-                <!-- <a class="dropdown-item" href="#">
+                  <!-- <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Settings
                   </a> -->
-                <span class="dropdown-item disabled" id="name"></span>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" data-toggle="theme" onclick="viewController.toggleTheme()">
-                  <i class="fas fa-eye fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Switch theme
-                </a>
-                <!-- <a class="dropdown-item" onclick="viewController.openSettings()">
+                  <span class="dropdown-item disabled" id="name"></span>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item"
+                    data-toggle="theme"
+                    onclick="viewController.toggleTheme()"
+                  >
+                    <i class="fas fa-eye fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Switch theme
+                  </a>
+                  <!-- <a class="dropdown-item" onclick="viewController.openSettings()">
                   <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a> -->
-                <a class="dropdown-item" onclick="logOut()">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
+                  <a class="dropdown-item" onclick="logOut()">
+                    <i
+                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                    ></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <!-- </div> -->
+          </nav>
+          <!-- End of Topbar -->
 
-          </ul>
-          <!-- </div> -->
+          <div class="mt-4" id="ptr"></div>
 
-        </nav>
-        <!-- End of Topbar -->
+          <div class="container-fluid" id="lesson-wrapper"></div>
 
-        <div class="mt-4" id="ptr"></div>
+          <!-- Begin Page Content -->
+          <div class="container-fluid" id="general-wrapper">
+            <!-- Page Heading -->
 
-        <div class="container-fluid" id="lesson-wrapper">
-
-        </div>
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid" id="general-wrapper">
-          <!-- Page Heading -->
-
-
-          <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Gemiddeld</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm disabled"><i class="fas fa-download fa-sm text-white-50"></i> Download cijferlijst</a>
           </div> -->
 
-
-
-          <!-- Content Row -->
-          <div class="row">
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2" data-toggle="tooltip" data-placement="bottom"
-                title="Je gemiddelde cijfer van al je vakken bij elkaar">
-                <!-- <div style="position: absolute; bottom: 1px; right: 1px; color: #d5d5d5">
+            <!-- Content Row -->
+            <div class="row">
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div
+                  class="card border-left-primary shadow h-100 py-2"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Je gemiddelde cijfer van al je vakken bij elkaar"
+                >
+                  <!-- <div style="position: absolute; bottom: 1px; right: 1px; color: #d5d5d5">
                   <a class="dropdown-toggle no-arrow" href="#" role="button" id="dropdownFirst" data-toggle="dropdown" aria-label="Pas aan" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-edit fa-sm"></i>
                   </a>
                 </div> -->
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary-blue text-uppercase mb-1">Temperature
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-primary-blue text-uppercase mb-1"
+                        >
+                          Temperature
+                        </div>
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="general-temperature"
+                        >
+                          -
+                        </div>
                       </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-temperature">-
+                      <div class="col-6">
+                        <canvas id="tempChart" height="37px"></canvas>
+                        <!-- <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300"></i> -->
                       </div>
-                    </div>
-                    <div class="col-6">
-                      <canvas id="tempChart" height="37px"></canvas>
-                      <!-- <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300"></i> -->
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2" data-toggle="tooltip" data-placement="bottom"
-                title="Het gemiddeld % voltooid van al je vakken. (Let op: deze functie werkt mogelijk (nog) niet voor jouw school, en zal binnenkort vervangen worden!)">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Altitude</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="general-altitude">-</div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div
+                  class="card border-left-success shadow h-100 py-2"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Het gemiddeld % voltooid van al je vakken. (Let op: deze functie werkt mogelijk (nog) niet voor jouw school, en zal binnenkort vervangen worden!)"
+                >
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                        >
+                          Altitude
                         </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" id="general-completed-bar"
-                              style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div
+                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
+                              id="general-altitude"
+                            >
+                              -
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="progress progress-sm mr-2">
+                              <div
+                                class="progress-bar bg-info"
+                                role="progressbar"
+                                id="general-completed-bar"
+                                style="width: 0%"
+                                aria-valuenow="0"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                              ></div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-6">
-                      <!-- <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i> -->
-                      <canvas id="altChart" height="37px"></canvas>
+                      <div class="col-6">
+                        <!-- <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i> -->
+                        <canvas id="altChart" height="37px"></canvas>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pressure</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="general-pressure">-</div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-info text-uppercase mb-1"
+                        >
+                          Pressure
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div
+                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
+                              id="general-pressure"
+                            >
+                              -
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-5">
-                      <!-- <i class="fas fa-info fa-2x text-gray-300"></i> -->
-                      <canvas id="presChart" height="37px"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Time Alive</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="general-alive">-
+                      <div class="col-5">
+                        <!-- <i class="fas fa-info fa-2x text-gray-300"></i> -->
+                        <canvas id="presChart" height="37px"></canvas>
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clock fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+                        >
+                          Time till deploy
+                        </div>
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="general-wait"
+                        >
+                          -
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-clock fa-2x text-gray-300"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Content Row -->
+            <!-- Content Row -->
 
-          <div class="row">
-            <!-- <div class="d-block"> -->
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Console</h6>
-                  <a class="float-right text-secondary" onclick="$('#console').empty()">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body pt-0" style="height: 315px !important;">
-                  <pre id="console"
-                    style="height: calc(315px - 40px - 1.5rem);overflow-y: scroll; text-align: left;"></pre>
-                  <div id="command_wrapper" class="bg-primary"
-                    style="bottom: 1.25rem; position: absolute; left: 1.25rem; right: 1.25rem;">
-                    <input class="w-75 pt-2 d-inline" type="text" placeholder="Command..." id="command" /><button
-                      class="bg-primary w-10 py-2 px-3 d-inline border-0 float-right" id="command_send"><i
-                        class="fas fa-paper-plane text-white"></i></button></div>
+            <div class="row">
+              <!-- <div class="d-block"> -->
+              <!-- Pie Chart -->
+              <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  >
+                    <h6 class="m-0 font-weight-bold text-primary">Console</h6>
+                    <a
+                      class="float-right text-secondary"
+                      onclick="$('#console').empty()"
+                    >
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body pt-0" style="height: 315px !important">
+                    <pre
+                      id="console"
+                      style="
+                        height: calc(315px - 40px - 1.5rem);
+                        overflow-y: scroll;
+                        text-align: left;
+                      "
+                    ></pre>
+                    <div
+                      id="command_wrapper"
+                      class="bg-primary"
+                      style="
+                        bottom: 1.25rem;
+                        position: absolute;
+                        left: 1.25rem;
+                        right: 1.25rem;
+                      "
+                    >
+                      <input
+                        class="w-75 pt-2 d-inline"
+                        type="text"
+                        placeholder="Command..."
+                        id="command"
+                      /><button
+                        class="bg-primary w-10 py-2 px-3 d-inline border-0 float-right"
+                        id="command_send"
+                      >
+                        <i class="fas fa-paper-plane text-white"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Area Chart -->
-            <!-- <div class="col-xl-12 col-lg-12"> -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary" id="general-area-title">Temperature</h6>
-                  <!-- <div class="dropdown no-arrow">
+              <!-- Area Chart -->
+              <!-- <div class="col-xl-12 col-lg-12"> -->
+              <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  >
+                    <h6
+                      class="m-0 font-weight-bold text-primary"
+                      id="general-area-title"
+                    >
+                      Altitude
+                    </h6>
+                    <!-- <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" aria-label="Download grafiek"
                       onclick="viewController.downloadGraph()">
                       <i class="fas fa-download fa-sm"></i>
                     </a>
                   </div> -->
-                </div>
-                <!-- Card Body -->
-                <div class="card-body pt-0 pb-0">
-                  <div class="chart-area">
-                    <!-- <div class="table-responsive"> -->
-                    <canvas id="lineChart"></canvas>
-                    <!-- </div> -->
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body pt-0 pb-0">
+                    <div class="chart-area">
+                      <!-- <div class="table-responsive"> -->
+                      <canvas id="lineChart"></canvas>
+                      <!-- </div> -->
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- <div class="col-xl-12 col-lg-12">
+              <!-- <div class="col-xl-12 col-lg-12">
               <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary" id="general-area-title">Left stick</h6>
@@ -517,44 +694,47 @@
                 </div>
               </div>
             </div> -->
-          </div>
-          <!-- </div> -->
+            </div>
+            <!-- </div> -->
 
-          <!-- Content Row -->
-          <div class="d-block">
-            <div class="row">
-
-
-              <div class="col-lg-8 mb-8">
-                <div class="card shadow mb-8">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Locatie</h6>
-                  </div>
-                  <div class="card-body pt-0">
-                    <div id="map" style="height: 400px;"></div>
-                    <div class="map-overlay">
-                      <center>
-                        <i class="fas fa-circle-notch fa-spin fa-3x text-white" aria-hidden="true"></i>
-                        <br><br>
-                        <span class="text-white">Wachten op GPS locatie...</span>
-                      </center>
+            <!-- Content Row -->
+            <div class="d-block">
+              <div class="row">
+                <div class="col-lg-8 mb-8">
+                  <div class="card shadow mb-8">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Locatie</h6>
+                    </div>
+                    <div class="card-body pt-0">
+                      <div id="map" style="height: 400px"></div>
+                      <div class="map-overlay">
+                        <center>
+                          <i
+                            class="fas fa-circle-notch fa-spin fa-3x text-white"
+                            aria-hidden="true"
+                          ></i>
+                          <br /><br />
+                          <span class="text-white"
+                            >Wachten op GPS locatie...</span
+                          >
+                        </center>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-lg-4 mb-4">
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data</h6>
-                  </div>
-                  <div class="card-body pt-0">
-                    <pre id="data" style="font-size: large;"></pre>
+                <div class="col-lg-4 mb-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Data</h6>
+                    </div>
+                    <div class="card-body pt-0">
+                      <pre id="data" style="font-size: large"></pre>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- <div class="col-lg-6 mb-4">
+                <!-- <div class="col-lg-6 mb-4">
 
                 Illustrations
                 <div class="card shadow mb-4">
@@ -589,157 +769,177 @@
                 </div>
 
               </div> -->
+              </div>
             </div>
-
+            <!-- Color System -->
+            <div class="row mt-4">
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-primary text-white shadow">
+                  <div class="card-body">
+                    Primary
+                    <div class="text-white-50 small">#314255</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-success text-white shadow">
+                  <div class="card-body">
+                    Success
+                    <div class="text-white-50 small">#1cc88a</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-info text-white shadow">
+                  <div class="card-body">
+                    Info
+                    <div class="text-white-50 small">#36b9cc</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-warning text-white shadow">
+                  <div class="card-body">
+                    Warning
+                    <div class="text-white-50 small">#f6c23e</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-danger text-white shadow">
+                  <div class="card-body">
+                    Danger
+                    <div class="text-white-50 small">#e74a3b</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-secondary text-white shadow">
+                  <div class="card-body">
+                    Secondary
+                    <div class="text-white-50 small">#42b983</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Color System -->
-          <div class="row mt-4">
-            <div class="col-lg-6 mb-4">
-              <div class="card bg-primary text-white shadow">
-                <div class="card-body">
-                  Primary
-                  <div class="text-white-50 small">#314255</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-              <div class="card bg-success text-white shadow">
-                <div class="card-body">
-                  Success
-                  <div class="text-white-50 small">#1cc88a</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-              <div class="card bg-info text-white shadow">
-                <div class="card-body">
-                  Info
-                  <div class="text-white-50 small">#36b9cc</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-              <div class="card bg-warning text-white shadow">
-                <div class="card-body">
-                  Warning
-                  <div class="text-white-50 small">#f6c23e</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-              <div class="card bg-danger text-white shadow">
-                <div class="card-body">
-                  Danger
-                  <div class="text-white-50 small">#e74a3b</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-              <div class="card bg-secondary text-white shadow">
-                <div class="card-body">
-                  Secondary
-                  <div class="text-white-50 small">#42b983</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- End of Main Content -->
 
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; <a href="https://github.com/teamsuzy/dashboard" target="_blank"
-                aria-label="Github pagina van Magiscore" style="color: #858796">Dashboard</a> - <a
-                href="https://netlob.app" target="_blank" aria-label="Github portfolio van de maker"
-                style="color: #858796">Team
-                SUZY</a>
-              <a href="https://wikipedia.org/wiki/2018" target="_blank" aria-label="2018"
-                style="color: #858796">2018</a>-<a href="https://wikipedia.org/wiki/2019" target="_blank"
-                aria-label="2019" style="color: #858796">2019</a></span>
+        <!-- Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span
+                >Copyright &copy;
+                <a
+                  href="https://github.com/teamsuzy/dashboard"
+                  target="_blank"
+                  aria-label="Github pagina van Magiscore"
+                  style="color: #858796"
+                  >Dashboard</a
+                >
+                -
+                <a
+                  href="https://netlob.dev"
+                  target="_blank"
+                  aria-label="Github portfolio van de maker"
+                  style="color: #858796"
+                  >Team SUZY</a
+                >
+                <a
+                  href="https://wikipedia.org/wiki/2018"
+                  target="_blank"
+                  aria-label="2018"
+                  style="color: #858796"
+                  >2018</a
+                >-<a
+                  href="https://wikipedia.org/wiki/2019"
+                  target="_blank"
+                  aria-label="2019"
+                  style="color: #858796"
+                  >2019</a
+                ></span
+              >
+            </div>
           </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-    <div id="overlay">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+        </footer>
+        <!-- End of Footer -->
       </div>
+      <!-- End of Content Wrapper -->
+
+      <div id="overlay">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+
+      <div id="settings-overlay"></div>
     </div>
+    <!-- End of Page Wrapper -->
 
-    <div id="settings-overlay"></div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/deps/sb-admin-2.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="js/deps/moment.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+      integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/deps/sb-admin-2.js"></script>
+    <script src="js/deps/live-chart.min.js"></script>
+    <script src="js/deps/algebra.js"></script>
+    <script src="js/deps/imagecache.js"></script>
+    <script src="js/deps/lodash.js"></script>
+    <script src="js/deps/chartannotation.js"></script>
+    <script src="js/deps/jspdf.min.js"></script>
+    <script src="js/deps/swipe.min.js"></script>
+    <script src="js/deps/pull.js"></script>
+    <script src="js/deps/snap.js"></script>
+    <script src="js/deps/fastclick.js"></script>
+    <script src="js/deps/odometer.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="js/deps/moment.min.js"></script>
-  <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
-    integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-
-  <script src="js/deps/live-chart.min.js"></script>
-  <script src="js/deps/algebra.js"></script>
-  <script src="js/deps/imagecache.js"></script>
-  <script src="js/deps/lodash.js"></script>
-  <script src="js/deps/chartannotation.js"></script>
-  <script src="js/deps/jspdf.min.js"></script>
-  <script src="js/deps/swipe.min.js"></script>
-  <script src="js/deps/pull.js"></script>
-  <script src="js/deps/snap.js"></script>
-  <script src="js/deps/fastclick.js"></script>
-  <script src="js/deps/odometer.min.js"></script>
-
-
-  <script src="js/ViewController.js"></script>
-  <script src="js/prototope.js"></script>
-  <script src="js/SocketController.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyAhk-93kEZfPcs71UB0dcGMUTIMoRUHD1o",
-      authDomain: "teamsuzy-dashboard.firebaseapp.com",
-      databaseURL: "https://teamsuzy-dashboard.firebaseio.com",
-      projectId: "teamsuzy-dashboard",
-      storageBucket: "teamsuzy-dashboard.appspot.com",
-      messagingSenderId: "489518053495",
-      appId: "1:489518053495:web:9f9b5197a8d54d90146e72"
-    };
-    firebase.initializeApp(firebaseConfig);
-  </script>
-</body>
-
+    <script src="js/ViewController.js"></script>
+    <script src="js/prototope.js"></script>
+    <script src="js/SocketController.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAhk-93kEZfPcs71UB0dcGMUTIMoRUHD1o",
+        authDomain: "teamsuzy-dashboard.firebaseapp.com",
+        databaseURL: "https://teamsuzy-dashboard.firebaseio.com",
+        projectId: "teamsuzy-dashboard",
+        storageBucket: "teamsuzy-dashboard.appspot.com",
+        messagingSenderId: "489518053495",
+        appId: "1:489518053495:web:9f9b5197a8d54d90146e72",
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </body>
 </html>
