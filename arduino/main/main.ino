@@ -48,10 +48,10 @@ void setup()
 {
   Serial.begin(9600); // start USB serial on 9600 baud
   Serial.println("1");
-//  while (!Serial) {
-//    ;
-//  }
-  rfSerial.begin(9600);  // start RF  serial on 9600 baud
+  //  while (!Serial) {
+  //    ;
+  //  }
+  rfSerial.begin(9600); // start RF  serial on 9600 baud
   //   gpsSerial.begin(9600); // start GPS serial on 9600 baud
   //   gpsSerial.println(PMTK_Q_RELEASE);
   //   gpsSerial.println(PMTK_SET_NMEA_OUTPUT_RMCGGA); // set the GPS output only GPRMC
@@ -59,11 +59,11 @@ void setup()
   rightServo.attach(8);
   leftServo.attach(9);
   //   leftStepper.setSpeed(10);
-//  if (!bmp.begin())
-//  {
-//    Serial.println("No BMP280 connect lol");
-//    while (1);
-//  }
+  //  if (!bmp.begin())
+  //  {
+  //    Serial.println("No BMP280 connect lol");
+  //    while (1);
+  //  }
   delay(1000);
   Serial.println("2");
 }
@@ -77,60 +77,62 @@ void loop()
     //    if (input[0] == "S")
     //    {
     Serial.println(line);
-    String side = line.substring(0,1);
+    String side = line.substring(0, 1);
     int input = line.substring(2).toInt();
     if (input > 0 && input < 180)
     {
-      if(side == "r")  rightServo.write(input);
-      if(side == "l")  leftServo.write(input);
+      if (side == "r")
+        rightServo.write(input);
+      if (side == "l")
+        leftServo.write(input);
     }
     //    }
   }
   delay(20);
-//    char c = GPS.read();
-//    if (GPS.newNMEAreceived())
-//    {
-//      if (!GPS.parse(GPS.lastNMEA()))
-//        return;
-//  //  }
-//    if (timer > millis())
-//    {
-//      timer = millis();
-//    } // reset the timer
-//    if (millis() - timer > 500)
-//    {
-//      timer = millis(); // reset the timer
-//      rfSerial.println(millis());
-//      Serial.println(millis());
-//  
-//      String temp = String(bmp.readTemperature());   // read temperature from BMP
-//      String alt = String(bmp.readAltitude(1016.5)); // read altitude    from BMP
-//      String pres = String(bmp.readPressure());      // read pressure    from BMP
-      //    if (GPS.fix)
-      //    {
-      //      //      Serial.print(GPS.longitude * 1000000000);
-      //      //      rfSerial.print(GPS.longitude * 1000000000);
-      //      //      Serial.print(",");
-      //      //      rfSerial.print(",");
-      //      //      Serial.print(GPS.latitude * 1000000000);
-      //      //      rfSerial.print(GPS.latitude * 1000000000);
-      //      String lat = String(GPS.latitude, 10);          // read latitude    from GPS
-      //      String longitude = String(GPS.longitude, 10);   // read longitude   from GPS
-      //      String altitude = String(GPS.altitude, 10);     // read altitude    from GPS
-      //      String satellites = String(GPS.satellites, 10); // read satellites  from GPS
-      //      String angle = String(GPS.angle, 10);           // read angle       from GPS
-      //      String speedy = String(GPS.speed, 10);          // read speed       from GPS
-      //      Serial.println(("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":{\"lat\":" + lat + ",\"long\":" + longitude + ",\"altitude\":" + altitude + ",\"satellites\":" + satellites + ",\"angle\":" + angle + ",\"speed\":" + speedy + "},\"team\":\"suzy\"}"));
-      //      rfSerial.println(("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":{\"lat\":" + lat + ",\"long\":" + longitude + ",\"altitude\":" + altitude + ",\"satellites\":" + satellites + ",\"angle\":" + angle + ",\"speed\":" + speedy + "},\"team\":\"suzy\"}"));
-      //    }
-      //    else
-      //    {
-//            String json = ("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":" + String(GPS.satellites) + ",\"team\":\"suzy\"}");
-//      String json = ("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":false,\"team\":\"suzy\"}");
-      //      Serial.println(json);
-//      rfSerial.println(json);
-      //        Serial.println((GPS.fix + 1) * 1000000000);
-      //        rfSerial.println((GPS.fix + 1) * 1000000000);
-      //    }
-//    }
+  //    char c = GPS.read();
+  //    if (GPS.newNMEAreceived())
+  //    {
+  //      if (!GPS.parse(GPS.lastNMEA()))
+  //        return;
+  //  //  }
+  //    if (timer > millis())
+  //    {
+  //      timer = millis();
+  //    } // reset the timer
+  //    if (millis() - timer > 500)
+  //    {
+  //      timer = millis(); // reset the timer
+  //      rfSerial.println(millis());
+  //      Serial.println(millis());
+  //
+  //      String temp = String(bmp.readTemperature());   // read temperature from BMP
+  //      String alt = String(bmp.readAltitude(1016.5)); // read altitude    from BMP
+  //      String pres = String(bmp.readPressure());      // read pressure    from BMP
+  //    if (GPS.fix)
+  //    {
+  //      //      Serial.print(GPS.longitude * 1000000000);
+  //      //      rfSerial.print(GPS.longitude * 1000000000);
+  //      //      Serial.print(",");
+  //      //      rfSerial.print(",");
+  //      //      Serial.print(GPS.latitude * 1000000000);
+  //      //      rfSerial.print(GPS.latitude * 1000000000);
+  //      String lat = String(GPS.latitude, 10);          // read latitude    from GPS
+  //      String longitude = String(GPS.longitude, 10);   // read longitude   from GPS
+  //      String altitude = String(GPS.altitude, 10);     // read altitude    from GPS
+  //      String satellites = String(GPS.satellites, 10); // read satellites  from GPS
+  //      String angle = String(GPS.angle, 10);           // read angle       from GPS
+  //      String speedy = String(GPS.speed, 10);          // read speed       from GPS
+  //      Serial.println(("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":{\"lat\":" + lat + ",\"long\":" + longitude + ",\"altitude\":" + altitude + ",\"satellites\":" + satellites + ",\"angle\":" + angle + ",\"speed\":" + speedy + "},\"team\":\"suzy\"}"));
+  //      rfSerial.println(("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":{\"lat\":" + lat + ",\"long\":" + longitude + ",\"altitude\":" + altitude + ",\"satellites\":" + satellites + ",\"angle\":" + angle + ",\"speed\":" + speedy + "},\"team\":\"suzy\"}"));
+  //    }
+  //    else
+  //    {
+  //            String json = ("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":" + String(GPS.satellites) + ",\"team\":\"suzy\"}");
+  //      String json = ("{\"alive\":" + String(millis()) + ",\"temperature\":" + temp + ",\"altitude\":" + alt + ",\"pressure\":" + pres + ",\"gps\":false,\"team\":\"suzy\"}");
+  //      Serial.println(json);
+  //      rfSerial.println(json);
+  //        Serial.println((GPS.fix + 1) * 1000000000);
+  //        rfSerial.println((GPS.fix + 1) * 1000000000);
+  //    }
+  //    }
 }
